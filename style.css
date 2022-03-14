@@ -1,0 +1,171 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+:root {
+    --mobile-width: 375px;
+    --desktop-width: 1440px;
+    --radius: 1.5rem;
+    --pad: 1rem;
+
+    /* Font Properties */
+    --ff: "Red Hat Display", Arial, Helvetica, sans-serif;
+    --fs: 16px;
+    --fw-sm: 500;
+    --fw-md: 700;
+    --fw-lg: 900;
+
+    /* Colors */
+    --clr-100: hsl(225, 100%, 98%);
+    --clr-200: hsl(225, 100%, 94%);
+    --clr-400: hsl(224, 23%, 55%);
+    --clr-alpha-400: hsla(224, 23%, 55%, 0.5);
+    --clr-500: hsl(245, 83%, 68%);
+    --clr-600: hsl(245, 75%, 52%);
+    --clr-900: hsl(223, 47%, 23%);
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: var(--ff);
+    font-size: var(--fs);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("./images/pattern-background-mobile.svg") no-repeat;
+    background-size: contain;
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        background: url("./images/pattern-background-desktop.svg") no-repeat, var(--clr-200);
+        background-size: contain;
+    }
+}
+
+.card {
+    width: min(375px - calc(2 * var(--pad)), 375px);
+    border-radius: var(--radius);
+    background: var(--clr-100);
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--clr-alpha-400);
+}
+
+.card__top--image {
+    width: 100%;
+}
+
+.card__middle {
+    padding: var(--pad) calc(var(--pad) * 3.5);
+    text-align: center;
+}
+
+.card__middle--title {
+    color: var(--clr-900);
+    font-weight: var(--fw-lg);
+}
+
+.card__middle--description {
+    line-height: 2;
+    color: var(--clr-400);
+    font-weight: var(--fw-sm);
+    font-size: var(--fs);
+}
+
+.card__plan {
+    margin-block: calc(2 * var(--pad));
+    display: grid;
+    grid-template-areas:
+        "music  title  change"
+        "music  cost   change";
+}
+
+.card__plan--music-icon {
+    grid-area: music;
+    vertical-align: middle;
+}
+
+.card__plan--title {
+    text-align: left;
+    grid-area: title;
+    color: var(--clr-900);
+    font-size: calc(var(--fs) 0.8);
+}
+
+.card__plan--cost {
+    text-align: left;
+    color: var(--clr-400);
+    grid-area: cost;
+}
+
+.card__plan--change {
+    display: flex;
+    align-items: center;
+    grid-area: change;
+    color: var(--clr-600);
+    font-weight: var(--fw-lg);
+    font-size: calc(var(--fs) * 0.8);
+    justify-content: flex-end;
+}
+
+.card__plan--change:hover {
+    color: var(--clr-500);
+    text-decoration: none;
+}
+
+.card__bottom {
+    padding: 0 calc(var(--pad) * 2) calc(var(--pad) * 2);
+    text-align: center;
+}
+
+.card__bottom--proceed {
+    margin-bottom: calc(1.5 * var(--pad));
+}
+
+.card__bottom--cancel {
+    text-decoration: none;
+    font-weight: var(--fw-lg);
+    color: var(--clr-400);
+}
+
+.card__bottom--cancel:hover {
+    color: var(--clr-900);
+}
+
+/* Utility Classes */
+.btn {
+    background-color: var(--clr-600);
+    color: var(--clr-100);
+    padding: calc(var(--pad)) calc(var(--pad) * 2);
+    text-decoration: none;
+    border-radius: calc(0.5 * var(--radius));
+    display: block;
+    box-shadow: 0 10px 30px var(--clr-alpha-400);
+}
+
+.btn:hover {
+    background-color: var(--clr-500);
+}
+
+.transition {
+    transition: all 500ms ease;
+}
+
+/* Frontend Mentor Attribution */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
